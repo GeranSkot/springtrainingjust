@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns:spring="http://www.springframework.org/schema/beans"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <spring:bean id="userService" class="spring.easy.program.UserService">
+        <spring:constructor-arg ref="writerService"
+        <spring:property name="writerService" ref="writerService"/>
+    </spring:bean>
+    <spring:bean id="writerService"
+                 scope="prototype"
+                 class="spring.easy.program.WriterService">
+        <spring:property name="writerService" ref="writerService"/>
+    </spring:bean>
+    <spring:bean id="rollService" class="spring.easy.program.RollService"/>
+
+
+</spring:beans>
